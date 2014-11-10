@@ -1,0 +1,19 @@
+body {
+	background-image: url('https://farm6.staticflickr.com/5587/15130198200_a0ee36d914_o_d.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	padding-top: 70px;
+}
+html, body {
+	height: 100%;
+}
+.signup-input {
+	margin-bottom: 5px;
+}
+.delete {
+	margin-top: -7px
+}
+.missing {
+	border-color: #BD362F;
+}
