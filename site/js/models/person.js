@@ -1,5 +1,6 @@
 var app = app || {};
 
+// User model containing all required information
 app.Person = Backbone.Model.extend({
 	defaults: {
 		firstName: '',

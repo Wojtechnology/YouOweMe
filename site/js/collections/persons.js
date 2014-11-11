@@ -1,5 +1,6 @@
 var app = app || {};
 
+// Collection for users
 var PersonList = Backbone.Collection.extend({
 	
 	model: app.Person,

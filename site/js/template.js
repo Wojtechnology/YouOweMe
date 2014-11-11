@@ -1,7 +1,10 @@
 var app = app || {};
 
+// Object containing all necessary templates for the website
 app.Templates = {
 
+	// For the welcome page, for users that are not yet logged in
+	// Contains two forms (email and password) as well as a 'login' button
 	loginBar: "<div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>\
   					<form style='border: 0;' class='navbar-form navbar-right' role='login'>\
   						<div class='form-group'>\
@@ -12,6 +15,8 @@ app.Templates = {
   					</form>\
   				</div>",
 
+  	// Window to be displayed on welcome page which allows for creation of new users
+ 	// Contains Jumbotron and five forms
   	signupWin: "<div class='row'>\
 					<div class='col-md-7'>\
 						<div style='background-color: #FFFFFF;' class='jumbotron'>\

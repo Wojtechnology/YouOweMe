@@ -1,5 +1,7 @@
 var app = app || {};
 
+// Displays users' first and last names
+// Allows for deletion of users
 app.PersonView = Backbone.View.extend({
 
 	tagName: 'li',
@@ -12,6 +14,7 @@ app.PersonView = Backbone.View.extend({
 
 	template: _.template(app.Templates.nameBar),
 
+	// Listens to chenages in the model, and if changed, calls render()
 	initialize: function(){
 		this.listenTo(this.model, 'change', this.render);
 	},
@@ -21,6 +24,7 @@ app.PersonView = Backbone.View.extend({
 		return this;
 	},
 
+	// Deletes model from collection and removes the element from html
 	deleteUser: function(){
 		this.$el.remove();
 		this.model.destroy();

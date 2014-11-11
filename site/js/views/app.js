@@ -1,9 +1,11 @@
 var app = app || {};
 
+// View for controlling main logic on the website
 app.AppView = Backbone.View.extend({
 	
 	el: '#main-area',
 
+	// Includes all the events, from welcome page as well as from main page
 	events: {
 		'click #done' : 'save',
 		'keypress #signup-box' : 'checkEnter'
@@ -11,20 +13,24 @@ app.AppView = Backbone.View.extend({
 
 	initialize: function(){
 		this.render();
-		this.$firstIn = this.$('#firstIn');
-		this.$lastIn = this.$('#lastIn');
-		this.$addIn = this.$('#addIn');
-		this.$passIn = this.$('#passIn');
-		this.$checkIn = this.$('#checkIn');
-		this.$error = this.$('#error');
-
-		this.login = true;
+		this.initForm();
 		
 		this.listenTo(app.Persons, 'add', this.addOne);
 		this.listenTo(app.Persons, 'reset', this.addAll);
 		app.Persons.fetch();
 	},
 
+	// Initializes bindings to elements for signup forms
+	initForm: function(){
+		this.$firstIn = this.$('#firstIn');
+		this.$lastIn = this.$('#lastIn');
+		this.$addIn = this.$('#addIn');
+		this.$passIn = this.$('#passIn');
+		this.$checkIn = this.$('#checkIn');
+		this.$error = this.$('#error');
+	},
+
+	// Renders windows depending on state
 	render: function(){
 		$('#navbar-main').append(app.Templates.loginBar);
 		$('#main-area').append(app.Templates.signupWin);
@@ -41,6 +47,7 @@ app.AppView = Backbone.View.extend({
 		app.Persons.each(this.addOne, this);
 	},
 
+	// Save and validation function
 	save: function(){
 		this.$firstIn.removeClass('missing');
 		this.$lastIn.removeClass('missing');
